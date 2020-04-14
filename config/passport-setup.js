@@ -6,7 +6,12 @@ var models = require('../models/user-model');
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
-})
+});
+passport.deserializeUser((id, done) => {
+    models.User.findById(id).then((user) => {
+        done(null, user);
+    })
+});
 
 passport.use(
     new GoogleStrategy({

@@ -7,5 +7,8 @@ module.exports = {
     },
     mongodb: {
         dbURI: "mongodb://bemy:bemybemy1@ds245234.mlab.com:45234/bemy"
+    }, 
+    session: {
+        cookieKey: 'bemyisawesome'
     }
 }

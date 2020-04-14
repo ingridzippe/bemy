@@ -9,6 +9,8 @@ const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
 
 
 setInterval(function() {
@@ -28,6 +30,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, '/public')));
+
+app.set('view engine', 'hbs');
+app.use(cookieSession({
+	maxAge: 24 * 60 * 60 * 1000,
+	keys: [keys.session.cookieKey]
+}));
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 // connect to mongodb
 mongoose.connect(keys.mongodb.dbURI, () => {
