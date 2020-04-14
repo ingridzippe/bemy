@@ -6,11 +6,19 @@ const keys = require('../config/keys');
 var connect = keys.mongodb.dbURI || require('./connect');
 mongoose.connect(connect);
 
-const userSchema = new Schema({
-    username: String,
-    googleId: String
+var userSchema = mongoose.Schema({
+    username: {
+        type: String,
+        required: false
+    }, 
+    googleId: {
+        type: String, 
+        required: false
+    }
 });
 
-const User = mongoose.model('user', userSchema);
+var User = mongoose.model('User', userSchema);
 
-module.exports = User;
+module.exports = {
+    User: User
+};

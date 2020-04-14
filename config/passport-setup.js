@@ -19,7 +19,6 @@ passport.use(
         // }).save().then((newUser) => {
         //     console.log('new user created' + newUser);
         // })
-        res.redirect('/index');
         var u = new User({
             username: profile.displayName,
             googleId: profile.id
