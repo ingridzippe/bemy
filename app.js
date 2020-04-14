@@ -39,8 +39,13 @@ passport.use(new FacebookStrategy({
     callbackURL: "https://secret-fjord-13510.herokuapp.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-	  console.log("profile");
-	  console.log(profile);
+	  if (profile != null) {
+		  console.log("profile");
+		  console.log(profile);
+		  res.redirect('index');
+	  } else {
+		  res.redirect('index');
+	  }
 	  // res.render('index')
     // User.findOrCreate(..., function(err, user) {
     //   if (err) { return done(err); }
