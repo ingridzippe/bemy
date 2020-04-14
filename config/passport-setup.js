@@ -26,6 +26,7 @@ passport.use(
             username: profile.displayName,
             googleId: profile.id
         });
+        console.log(u);
         u.save(function(err, user) {
             if (err) {
                 console.log(err);
