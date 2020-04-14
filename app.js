@@ -150,28 +150,28 @@ app.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => 
 
 // LINKEDIN STRATEGY
 var LinkedInStrategy = require('passport-linkedin').Strategy;
-passport.use(new LinkedInStrategy({
-    consumerKey: keys.linkedin.apiKey,
-    consumerSecret: keys.linkedin.secretKey,
-    callbackURL: "https://secret-fjord-13510.herokuapp.com/auth/linkedin/callback",
-    profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline']
-  },
-  function(token, tokenSecret, profile, done) {
-	console.log("linkedin profile");
-	console.log(profile);
-    // User.findOrCreate({ linkedinId: profile.id }, function (err, user) {
-    //   return done(err, user);
-    // });
-  }
-));
-app.get('/auth/linkedin',
-	passport.authenticate('linkedin', { scope: ['r_basicprofile', 'r_emailaddress'] }));
-app.get('/auth/linkedin/callback', 
-  	passport.authenticate('linkedin', { failureRedirect: '/login' }),
-  	function(req, res) {
-    	// Successful authentication, redirect home.
-    	res.redirect('/');
-});
+// passport.use(new LinkedInStrategy({
+//     consumerKey: keys.linkedin.apiKey,
+//     consumerSecret: keys.linkedin.secretKey,
+//     callbackURL: "https://secret-fjord-13510.herokuapp.com/auth/linkedin/callback",
+//     profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline']
+//   },
+//   function(token, tokenSecret, profile, done) {
+// 	console.log("linkedin profile");
+// 	console.log(profile);
+//     // User.findOrCreate({ linkedinId: profile.id }, function (err, user) {
+//     //   return done(err, user);
+//     // });
+//   }
+// ));
+// app.get('/auth/linkedin',
+// 	passport.authenticate('linkedin', { scope: ['r_basicprofile', 'r_emailaddress'] }));
+// app.get('/auth/linkedin/callback', 
+//   	passport.authenticate('linkedin', { failureRedirect: '/login' }),
+//   	function(req, res) {
+//     	// Successful authentication, redirect home.
+//     	res.redirect('/');
+// });
 
 
 
