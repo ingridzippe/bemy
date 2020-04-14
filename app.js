@@ -104,7 +104,8 @@ passport.use(new FacebookStrategy({
 			// if not, create new user
 			new models.User({
 				username: profile.displayName, 
-				facebookId: profile.id
+				facebookId: profile.id,
+				email: profile.email
 			}).save().then((newUser) => {
 				console.log('new user created');
 				console.log(newUser);
