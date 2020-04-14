@@ -10,7 +10,7 @@ const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
-var passport = require('passport');
+
 
 
 setInterval(function() {
@@ -54,7 +54,8 @@ app.get('/login'), (req, res) => {
 
 }
 
-FacebookStrategy = require('passport-facebook').Strategy;
+var passport = require('passport')
+  , FacebookStrategy = require('passport-facebook').Strategy;
 
 passport.use(new FacebookStrategy({
     clientID: "157356078965913",
