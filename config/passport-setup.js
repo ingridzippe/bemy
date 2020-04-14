@@ -20,8 +20,8 @@ passport.use(
         // }).save().then((newUser) => {
         //     console.log('new user created' + newUser);
         // })
-        console.log(User);
-        console.log(models);
+        console.log("User" + User);
+        console.log("Models" + models);
         var u = new models.User({
             username: profile.displayName,
             googleId: profile.id
