@@ -20,6 +20,10 @@ var userSchema = mongoose.Schema({
         type: String,
         required: false
     },
+    linkedinId: {
+        type: String,
+        required: false
+    },
     email: {
         type: String,
         required: false
