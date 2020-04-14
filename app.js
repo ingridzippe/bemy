@@ -34,7 +34,7 @@ app.get('/login'), (req, res) => {
 
 }
 
-app.get('/google', function(req, res) {
+app.get('/auth/google', function(req, res) {
 	// handle with passport
 	res.send('logging in with google');
 });
