@@ -42,9 +42,10 @@ passport.use(new FacebookStrategy({
 	  if (profile != null) {
 		  console.log("profile");
 		  console.log(profile);
-		  res.redirect('index');
+		  var user = profile;
+		  done(null, user);
 	  } else {
-		  res.redirect('index');
+		  done(err);
 	  }
 	  // res.render('index')
     // User.findOrCreate(..., function(err, user) {
