@@ -141,7 +141,7 @@ app.get('/auth/linkedin/callback', function(req, res) {
 			res.on('end', () => {
 			console.log('prints email')
 			const profileData = JSON.parse(data);
-			console.log("profileData");
+			console.log(profileData);
 			// console.log(profileData);
 		
 			// console.log("JSON.stringify(profileData, 0, 2)");
