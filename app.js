@@ -159,9 +159,9 @@ passport.use(new LinkedInStrategy({
   function(token, tokenSecret, profile, done) {
 	console.log("linkedin profile");
 	console.log(profile);
-    User.findOrCreate({ linkedinId: profile.id }, function (err, user) {
-      return done(err, user);
-    });
+    // User.findOrCreate({ linkedinId: profile.id }, function (err, user) {
+    //   return done(err, user);
+    // });
   }
 ));
 app.get('/auth/linkedin',
