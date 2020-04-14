@@ -185,13 +185,32 @@ passport.use(new LinkedInStrategy({
 	// asynchronous verification, for effect...
 	console.log('linkedin profile');
 	console.log(profile);
-	process.nextTick(function () {
-	  // To keep the example simple, the user's LinkedIn profile is returned to
-	  // represent the logged-in user. In a typical application, you would want
-	  // to associate the LinkedIn account with a user record in your database,
-	  // and return that user instead.
-	  return done(null, profile);
-	});
+	models.User.findOne({linkedinId: profile.id}).then((currentUser) => {
+		if (currentUser) {
+			// already have user
+			console.log("user is", currentUser);
+			done(null, currentUser);
+		} else {
+			// if not, create new user
+			new models.User({
+				username: profile.displayName, 
+				facebookId: profile.id,
+				email: profile._json.emails[0].value,
+				photo: photos[0].value,
+			}).save().then((newUser) => {
+				console.log('new user created');
+				console.log(newUser);
+				done(null, newUser);
+			})
+		}
+	})
+	// process.nextTick(function () {
+	//   // To keep the example simple, the user's LinkedIn profile is returned to
+	//   // represent the logged-in user. In a typical application, you would want
+	//   // to associate the LinkedIn account with a user record in your database,
+	//   // and return that user instead.
+	//   return done(null, profile);
+	// });
   }));
 app.get('/auth/linkedin',
   	passport.authenticate('linkedin'),
