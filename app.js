@@ -77,7 +77,7 @@ app.get('/auth/linkedin/callback', function(req, res) {
 			res.on('end', () => {
 			console.log('gets in here?')
 			const profileData = JSON.parse(data);
-			console.log(profileData);
+			console.log(profileData.localizedLastName);
 			// console.log(JSON.stringify(profileData, 0, 2));
 			// console.log("profileData.firstName.en_US");
 			// console.log("LAST NAME");
