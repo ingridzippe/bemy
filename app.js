@@ -67,7 +67,7 @@ app.get('/tech', function(req, res) {
 
 app.get('/linkedin', function(req, res) {
 	console.log("linkedin");
-	res.redirect("https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=78w1f2pk5r3x2y&redirect_uri=https://infinite-garden-97012.herokuapp.com/auth/linkedin/callback&state=fooobar&scope=r_liteprofile%20r_emailaddress%20w_member_social");
+	res.redirect("https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=78w1f2pk5r3x2y&redirect_uri=https://secret-fjord-13510.herokuapp.com/auth/linkedin/callback&state=fooobar&scope=r_liteprofile%20r_emailaddress%20w_member_social");
 });
 
 app.get('/auth/linkedin/callback', function(req, res) {
@@ -79,7 +79,7 @@ app.get('/auth/linkedin/callback', function(req, res) {
 	var accessToken = null;
 
 	const Http = new XMLHttpRequest();
-	const url='https://www.linkedin.com/oauth/v2/accessToken?client_id='+clientId+'&client_secret='+clientSecret+'&grant_type=authorization_code&redirect_uri=https://infinite-garden-97012.herokuapp.com/auth/linkedin/callback&code='+accessCode;
+	const url='https://www.linkedin.com/oauth/v2/accessToken?client_id='+clientId+'&client_secret='+clientSecret+'&grant_type=authorization_code&redirect_uri=https://secret-fjord-13510.herokuapp.com/auth/linkedin/callback&code='+accessCode;
 	Http.open("GET", url);
 	Http.send();
 	Http.onreadystatechange = (e) => {
