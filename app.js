@@ -41,6 +41,7 @@ passport.use(new FacebookStrategy({
   function(accessToken, refreshToken, profile, done) {
 	  console.log("profile");
 	  console.log(profile);
+	  res.render('index')
     // User.findOrCreate(..., function(err, user) {
     //   if (err) { return done(err); }
     //   done(null, user);
