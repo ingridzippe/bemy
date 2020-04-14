@@ -149,6 +149,7 @@ app.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => 
 
 
 // LINKEDIN STRATEGY
+var LinkedInStrategy = require('passport-linkedin').Strategy;
 passport.use(new LinkedInStrategy({
     consumerKey: keys.linkedin.apiKey,
     consumerSecret: keys.linkedin.secretKey,
