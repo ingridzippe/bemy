@@ -8,10 +8,6 @@ var connect = keys.mongodb.dbURI || require('./connect');
 mongoose.connect(connect);
 
 var userSchema = mongoose.Schema({
-    _id: {
-        type: String, 
-        required: false
-    },
     username: {
         type: String,
         required: false
