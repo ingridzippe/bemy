@@ -12,13 +12,27 @@ passport.use(
     }, (accessToken, refreshToken, profile, done) => {
         // passport callback function
         console.log("passport callback function fired")
-        console.log(profile);
-        new User({
+        // console.log(profile);
+        // new User({
+        //     username: profile.displayName,
+        //     googleId: profile.id
+        // }).save().then((newUser) => {
+        //     console.log('new user created' + newUser);
+        // })
+        var u = new User({
             username: profile.displayName,
             googleId: profile.id
-        }).save().then((newUser) => {
-            console.log('new user created' + newUser);
-        })
+        });
+        u.save(function(err, user) {
+            if (err) {
+                console.log(err);
+                res.status(500).redirect('/index');
+                return;
+            }
+            console.log("new user created");
+            console.log(user);
+            res.redirect('/index');
+        });
     })
 )
 
