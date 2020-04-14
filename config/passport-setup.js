@@ -4,6 +4,10 @@ const keys = require('./keys');
 const User = require('../models/user-model');
 var models = require('../models/user-model');
 
+passport.serializeUser((user, done) => {
+    done(null, user.id);
+})
+
 passport.use(
     new GoogleStrategy({
         // options for strategy
@@ -27,6 +31,7 @@ passport.use(
             if (currentUser) {
                 // already have user
                 console.log("user is", currentUser);
+                done(null, currentUser);
             } else {
                 // if not, create new user
                 new models.User({
@@ -35,6 +40,7 @@ passport.use(
                 }).save().then((newUser) => {
                     console.log('new user created');
                     console.log(newUser);
+                    done(null, newUser);
                 })
             }
         })
