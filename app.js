@@ -6,7 +6,6 @@ var path = require('path');
 const https = require('https');
 const http = require('http');
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-const passport = require('passport');
 const passportSetup = require('./config/passport-setup');
 
 
@@ -35,10 +34,6 @@ app.get('/', function(req, res) {
 app.get('/login'), (req, res) => {
 
 }
-
-app.get('/auth/google', passport.authenticate('google', {
-	scope: ['profile']
-}));
 
 var passport = require('passport')
   , FacebookStrategy = require('passport-facebook').Strategy;
@@ -78,7 +73,9 @@ app.get('/auth/facebook/callback',
 									  failureRedirect: '/login' }));
 									  
 
-
+app.get('/auth/google', passport.authenticate('google', {
+	scope: ['profile']
+}));
 
 
 // app.get('/facebook', function(req, res) {
