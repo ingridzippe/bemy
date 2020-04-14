@@ -23,13 +23,13 @@ passport.use(
 
 
         // check if user already exists in database 
-        User.findOne({googleId: profile.id}).then((currentUser) => {
+        models.User.findOne({googleId: profile.id}).then((currentUser) => {
             if (currentUser) {
                 // already have user
                 console.log("user is", currentUser);
             } else {
                 // if not, create new user
-                new User({
+                new models.User({
                     username: profile.displayName, 
                     googleId: profile.id
                 }).save().then((newUser) => {
