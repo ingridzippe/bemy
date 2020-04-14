@@ -10,8 +10,8 @@ module.exports = {
         clientSecret: "52d9ab6fb30497f1df06d07fa2f97e59"
     },
     linkedin: {
-        apiKey: "78w1f2pk5r3x2y",
-        secretKey: "7XrmOoEUZC27RAUN"
+        clientID: "78w1f2pk5r3x2y",
+        clientSecret: "7XrmOoEUZC27RAUN"
     },
     mongodb: {
         dbURI: "mongodb://bemy:bemybemy1@ds245234.mlab.com:45234/bemy"

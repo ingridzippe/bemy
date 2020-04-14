@@ -149,30 +149,60 @@ app.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => 
 
 
 // LINKEDIN STRATEGY
-var LinkedInStrategy = require('passport-linkedin').Strategy;
-passport.use(new LinkedInStrategy({
-    consumerKey: keys.linkedin.apiKey,
-    consumerSecret: keys.linkedin.secretKey,
-    callbackURL: "https://secret-fjord-13510.herokuapp.com/auth/linkedin/callback",
-    profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline']
-  },
-  function(token, tokenSecret, profile, done) {
-	console.log("linkedin profile");
-	console.log(profile);
-    // User.findOrCreate({ linkedinId: profile.id }, function (err, user) {
-    //   return done(err, user);
-    // });
-  }
-));
-app.get('/auth/linkedin',
-	passport.authenticate('linkedin', { scope: ['r_basicprofile', 'r_emailaddress'] }));
-app.get('/auth/linkedin/callback', 
-  	passport.authenticate('linkedin', { failureRedirect: '/login' }),
-  	function(req, res) {
-    	// Successful authentication, redirect home.
-    	res.redirect('/');
-});
+// var LinkedInStrategy = require('passport-linkedin').Strategy;
+// passport.use(new LinkedInStrategy({
+//     consumerKey: keys.linkedin.apiKey,
+//     consumerSecret: keys.linkedin.secretKey,
+//     callbackURL: "https://secret-fjord-13510.herokuapp.com/auth/linkedin/callback",
+//     profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline']
+//   },
+//   function(token, tokenSecret, profile, done) {
+// 	console.log("linkedin profile");
+// 	console.log(profile);
+//     // User.findOrCreate({ linkedinId: profile.id }, function (err, user) {
+//     //   return done(err, user);
+//     // });
+//   }
+// ));
+// app.get('/auth/linkedin',
+// 	passport.authenticate('linkedin', { scope: ['r_basicprofile', 'r_emailaddress'] }));
+// app.get('/auth/linkedin/callback', 
+//   	passport.authenticate('linkedin', { failureRedirect: '/login' }),
+//   	function(req, res) {
+//     	// Successful authentication, redirect home.
+//     	res.redirect('/');
+// });
 
+
+var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
+passport.use(new LinkedInStrategy({
+	clientID: keys.linkedin.clientID,
+	clientSecret: keys.linkedin.clientSecret,
+	callbackURL: "https://secret-fjord-13510.herokuapp.com/auth/linkedin/callback",
+	scope: ['r_emailaddress', 'r_liteprofile'],
+	state: true
+  }, function(accessToken, refreshToken, profile, done) {
+	// asynchronous verification, for effect...
+	console.log('linkedin profile');
+	console.log(profile);
+	process.nextTick(function () {
+	  // To keep the example simple, the user's LinkedIn profile is returned to
+	  // represent the logged-in user. In a typical application, you would want
+	  // to associate the LinkedIn account with a user record in your database,
+	  // and return that user instead.
+	  return done(null, profile);
+	});
+  }));
+app.get('/auth/linkedin',
+  	passport.authenticate('linkedin'),
+  	function(req, res){
+    	// The request will be redirected to LinkedIn for authentication, so this
+    	// function will not be called.
+});
+app.get('/auth/linkedin/callback', passport.authenticate('linkedin', {
+	successRedirect: '/',
+	failureRedirect: '/login'
+}));
 
 
 
