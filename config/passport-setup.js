@@ -42,7 +42,7 @@ passport.use(
                 new models.User({
                     username: profile.displayName, 
                     googleId: profile.id,
-                    photo: profile._json.image.url
+                    photo: profile._json.picture
                 }).save().then((newUser) => {
                     console.log('new user created');
                     console.log(newUser);
