@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 const keys = require('../config/keys');
 
 // Step 0: Remember to add your MongoDB information in one of the following ways!
+console.log(keys.mongodb.dbURI)
 var connect = keys.mongodb.dbURI || require('./connect');
 mongoose.connect(connect);
 
