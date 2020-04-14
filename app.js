@@ -185,10 +185,10 @@ passport.use(new LinkedInStrategy({
 	// asynchronous verification, for effect...
 	console.log('linkedin profile');
 	console.log(profile);
+	console.log("profile.id");
+	console.log(profile.id);
+	console.log(typeof profile.id);
 	models.User.find({linkedinId: profile.id}).then((currentUser) => {
-		console.log("profile.id");
-		console.log(profile.id);
-		console.log(typeof profile.id);
 		if (currentUser) {
 			// already have user
 			console.log("user is", currentUser);
