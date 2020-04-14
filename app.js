@@ -30,6 +30,17 @@ app.get('/', function(req, res) {
   res.render('index')
 });
 
+app.get('/facebook', function(req, res) {
+	console.log("facebook");
+
+	FB.getLoginStatus(function(response) {
+		statusChangeCallback(response);
+		console.log(response);
+	});
+
+
+});
+
 app.get('/linkedin', function(req, res) {
 	console.log("linkedin");
 	res.redirect("https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=78w1f2pk5r3x2y&redirect_uri=https://secret-fjord-13510.herokuapp.com/auth/linkedin/callback&state=fooobar&scope=r_liteprofile%20r_emailaddress%20w_member_social");
