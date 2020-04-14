@@ -188,9 +188,8 @@ passport.use(new LinkedInStrategy({
 	console.log("profile.id");
 	console.log(profile.id);
 	console.log(typeof profile.id);
-	console.log("PROFILE JSON EMAILS")
-	console.log(profile.emails[0].value)
-	// photo: photos[0].value
+	console.log("PROFILE PHOTOS")
+	console.log(profile.photos[0].value
 	models.User.findOne({linkedinId: profile.id}).then((currentUser) => {
 		if (currentUser) {
 			// already have user
@@ -200,7 +199,8 @@ passport.use(new LinkedInStrategy({
 			// if not, create new user
 			new models.User({
 				username: profile.displayName, 
-				linkedinId: profile.id
+				linkedinId: profile.id, 
+				email: profile.emails[0].value
 			}).save().then((newUser) => {
 				console.log('new user created');
 				console.log(newUser);
