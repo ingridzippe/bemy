@@ -145,9 +145,38 @@ app.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => 
 // 		statusChangeCallback(response);
 // 		console.log(response);
 // 	});
-
-
 // });
+
+
+// LINKEDIN STRATEGY
+passport.use(new LinkedInStrategy({
+    consumerKey: keys.linkedin.apiKey,
+    consumerSecret: keys.linkedin.secretKey,
+    callbackURL: "https://secret-fjord-13510.herokuapp.com/auth/linkedin/callback",
+    profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline']
+  },
+  function(token, tokenSecret, profile, done) {
+    User.findOrCreate({ linkedinId: profile.id }, function (err, user) {
+      return done(err, user);
+    });
+  }
+));
+app.get('/auth/linkedin',
+	passport.authenticate('linkedin', { scope: ['r_basicprofile', 'r_emailaddress'] }));
+app.get('/auth/linkedin/callback', 
+  	passport.authenticate('linkedin', { failureRedirect: '/login' }),
+  	function(req, res) {
+    	// Successful authentication, redirect home.
+    	res.redirect('/');
+});
+
+
+
+
+
+
+
+
 
 app.get('/linkedin', function(req, res) {
 	console.log("linkedin");
