@@ -16,6 +16,10 @@ var userSchema = mongoose.Schema({
         type: String, 
         required: false
     },
+    facebookId: {
+        type: String,
+        required: false
+    },
     photo: {
         type: String,
         required: false
