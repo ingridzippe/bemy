@@ -20,23 +20,39 @@ passport.use(
         // }).save().then((newUser) => {
         //     console.log('new user created' + newUser);
         // })
-        console.log("User" + User);
-        console.log("Models" + models);
-        var u = new models.User({
-            username: profile.displayName,
-            googleId: profile.id
-        });
-        console.log(u);
-        u.save(function(err, user) {
-            if (err) {
-                console.log(err);
-                // res.status(500).redirect('/index');
-                return;
+
+
+        // check if user already exists in database 
+        User.findOne({googleId: profile.id}).then((currentUser) => {
+            if (currentUser) {
+                // already have user
+                console.log("user is", currentUser);
+            } else {
+                // if not, create new user
+                new User({
+                    username: profile.displayName, 
+                    googleId: profile.id
+                }).save().then((newUser) => {
+                    console.log('new user created');
+                    console.log(newUser);
+                })
             }
-            console.log("new user created");
-            console.log(user);
-            // res.redirect('/index');
-        });
+        })
+        // var u = new models.User({
+        //     username: profile.displayName,
+        //     googleId: profile.id
+        // });
+        // console.log(u);
+        // u.save(function(err, user) {
+        //     if (err) {
+        //         console.log(err);
+        //         // res.status(500).redirect('/index');
+        //         return;
+        //     }
+        //     console.log("new user created");
+        //     console.log(user);
+        //     // res.redirect('/index');
+        // });
     })
 )
 
