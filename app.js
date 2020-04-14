@@ -6,6 +6,8 @@ var path = require('path');
 const https = require('https');
 const http = require('http');
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+const passport = require('passport');
+const passportSetup = require('./config/passport-setup');
 
 
 setInterval(function() {
@@ -34,10 +36,9 @@ app.get('/login'), (req, res) => {
 
 }
 
-app.get('/auth/google', function(req, res) {
-	// handle with passport
-	res.send('logging in with google');
-});
+app.get('/auth/google', passport.authenticate('google', {
+	scope: ['profile']
+}));
 
 var passport = require('passport')
   , FacebookStrategy = require('passport-facebook').Strategy;
