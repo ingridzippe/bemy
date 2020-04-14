@@ -189,7 +189,7 @@ passport.use(new LinkedInStrategy({
 	console.log(profile.id);
 	console.log(typeof profile.id);
 	console.log("PROFILE PHOTOS")
-	console.log(profile.photos[0].value
+	console.log(profile.photos[0].value);
 	models.User.findOne({linkedinId: profile.id}).then((currentUser) => {
 		if (currentUser) {
 			// already have user
