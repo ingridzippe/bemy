@@ -194,9 +194,7 @@ passport.use(new LinkedInStrategy({
 			// if not, create new user
 			new models.User({
 				username: profile.displayName, 
-				facebookId: profile.id,
-				email: profile._json.emails[0].value,
-				photo: photos[0].value,
+				linkedinId: profile.id
 			}).save().then((newUser) => {
 				console.log('new user created');
 				console.log(newUser);
