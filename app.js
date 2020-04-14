@@ -185,7 +185,10 @@ passport.use(new LinkedInStrategy({
 	// asynchronous verification, for effect...
 	console.log('linkedin profile');
 	console.log(profile);
-	models.User.findOne({linkedinId: profile.id}).then((currentUser) => {
+	models.User.find({linkedinId: profile.id}).then((currentUser) => {
+		console.log("profile.id");
+		console.log(profile.id);
+		console.log(typeof profile.id);
 		if (currentUser) {
 			// already have user
 			console.log("user is", currentUser);
@@ -210,6 +213,9 @@ passport.use(new LinkedInStrategy({
 	//   return done(null, profile);
 	// });
   }));
+
+//   email: profile._json.emails[0].value,
+//   photo: photos[0].value,
 app.get('/auth/linkedin',
   	passport.authenticate('linkedin'),
   	function(req, res){
