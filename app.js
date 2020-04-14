@@ -67,7 +67,8 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 passport.use(new FacebookStrategy({
     clientID: keys.facebook.clientID,
     clientSecret: keys.facebook.clientSecret,
-    callbackURL: "https://secret-fjord-13510.herokuapp.com/auth/facebook/callback"
+	callbackURL: "https://secret-fjord-13510.herokuapp.com/auth/facebook/callback",
+	profileFields: ['id', 'displayName', 'photos', 'email']
   },
   function(accessToken, refreshToken, profile, done) {
 	//   if (profile != null) {
@@ -117,7 +118,7 @@ passport.use(new FacebookStrategy({
 // Facebook will redirect the user back to the application at
 //     /auth/facebook/callback
 app.get('/auth/facebook', 
-	passport.authenticate('facebook', { scope: ['email', 'user_friends', 'manage_pages'] }));
+	passport.authenticate('facebook', { scope: ['email', 'user_friends'] }));
 
 // Facebook will redirect the user to this URL after approval.  Finish the
 // authentication process by attempting to obtain an access token.  If
