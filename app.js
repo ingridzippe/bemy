@@ -189,7 +189,7 @@ passport.use(new LinkedInStrategy({
 	console.log(profile.id);
 	console.log(typeof profile.id);
 	console.log("PROFILE JSON EMAILS")
-	console.log(profile.emails)
+	console.log(profile.emails[0])
 	// photo: photos[0].value
 	models.User.findOne({linkedinId: profile.id}).then((currentUser) => {
 		if (currentUser) {
