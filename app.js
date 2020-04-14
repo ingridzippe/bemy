@@ -188,7 +188,7 @@ passport.use(new LinkedInStrategy({
 	console.log("profile.id");
 	console.log(profile.id);
 	console.log(typeof profile.id);
-	models.User.find({linkedinId: profile.id}).then((currentUser) => {
+	models.User.findOne({linkedinId: profile.id}).then((currentUser) => {
 		if (currentUser) {
 			// already have user
 			console.log("user is", currentUser);
