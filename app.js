@@ -11,7 +11,7 @@ const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 var passport = require('passport');
-
+const profileRoutes = require('./routes/profile-routes');
 
 
 setInterval(function() {
@@ -46,6 +46,8 @@ app.use(passport.session());
 mongoose.connect(keys.mongodb.dbURI, () => {
 	console.log('connected to mongodb')
 })
+
+app.use('/profile', profileRoutes);
 
 app.get('/', function(req, res) {
   res.render('index')
@@ -96,7 +98,8 @@ app.get('/auth/google', passport.authenticate('google', {
 }));
 
 app.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
-	res.send('you reached the callback URI')
+	/// res.send(req.user);
+	res.redirect('/profile')
 });
 // app.get('/facebook', function(req, res) {
 // 	console.log("facebook");
