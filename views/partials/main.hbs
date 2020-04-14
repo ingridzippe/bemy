@@ -6,7 +6,8 @@
   <div class="main-body">
     <div class="row">
       <a href="/linkedin">linkedin</a>
-      <a href="/facebook">facebook</a>
+      <a href="/auth/facebook">Login with Facebook</a>
+      {{!-- <a href="" onclick="javascript:loginWithFacebook()">facebook</a> --}}
   </div>
 
   <script>
@@ -17,7 +18,8 @@
         xfbml      : true,
         version    : 'v6.0'
       });
-      FB.AppEvents.logPageView();   
+      FB.AppEvents.logPageView();  
+      fbSDKLoaded()
     };
 
     (function(d, s, id){
@@ -28,4 +30,6 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   </script>
+
+  <script src="/script.js"></script>
 </body>

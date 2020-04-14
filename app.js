@@ -30,16 +30,48 @@ app.get('/', function(req, res) {
   res.render('index')
 });
 
-app.get('/facebook', function(req, res) {
-	console.log("facebook");
+var passport = require('passport')
+  , FacebookStrategy = require('passport-facebook').Strategy;
 
-	FB.getLoginStatus(function(response) {
-		statusChangeCallback(response);
-		console.log(response);
-	});
+passport.use(new FacebookStrategy({
+    clientID: "157356078965913",
+    clientSecret: "52d9ab6fb30497f1df06d07fa2f97e59",
+    callbackURL: "https://secret-fjord-13510.herokuapp.com/auth/facebook/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    User.findOrCreate(..., function(err, user) {
+      if (err) { return done(err); }
+      done(null, user);
+    });
+  }
+));
+// Redirect the user to Facebook for authentication.  When complete,
+// Facebook will redirect the user back to the application at
+//     /auth/facebook/callback
+app.get('/auth/facebook', passport.authenticate('facebook'));
+
+// Facebook will redirect the user to this URL after approval.  Finish the
+// authentication process by attempting to obtain an access token.  If
+// access was granted, the user will be logged in.  Otherwise,
+// authentication has failed.
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { successRedirect: '/',
+									  failureRedirect: '/login' }));
+									  
 
 
-});
+									  
+
+// app.get('/facebook', function(req, res) {
+// 	console.log("facebook");
+
+// 	FB.getLoginStatus(function(response) {
+// 		statusChangeCallback(response);
+// 		console.log(response);
+// 	});
+
+
+// });
 
 app.get('/linkedin', function(req, res) {
 	console.log("linkedin");
