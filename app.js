@@ -39,10 +39,12 @@ passport.use(new FacebookStrategy({
     callbackURL: "https://secret-fjord-13510.herokuapp.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate(..., function(err, user) {
-      if (err) { return done(err); }
-      done(null, user);
-    });
+	  console.log("profile");
+	  console.log(profile);
+    // User.findOrCreate(..., function(err, user) {
+    //   if (err) { return done(err); }
+    //   done(null, user);
+    // });
   }
 ));
 // Redirect the user to Facebook for authentication.  When complete,
@@ -60,7 +62,7 @@ app.get('/auth/facebook/callback',
 									  
 
 
-									  
+
 
 // app.get('/facebook', function(req, res) {
 // 	console.log("facebook");
