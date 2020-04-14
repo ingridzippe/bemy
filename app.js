@@ -12,6 +12,7 @@ const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 var passport = require('passport');
 const profileRoutes = require('./routes/profile-routes');
+const models = require('./models/user-model');
 
 
 setInterval(function() {
@@ -64,24 +65,52 @@ app.get('/logout'), (req, res) => {
 var FacebookStrategy = require('passport-facebook').Strategy;
 
 passport.use(new FacebookStrategy({
-    clientID: "157356078965913",
-    clientSecret: "52d9ab6fb30497f1df06d07fa2f97e59",
+    clientID: keys.facebook.clientID,
+    clientSecret: keys.facebook.clientSecret,
     callbackURL: "https://secret-fjord-13510.herokuapp.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-	  if (profile != null) {
-		  console.log("profile");
-		  console.log(profile);
-		  var user = profile;
-		  done(null, user);
-	  } else {
-		  done(err);
-	  }
+	//   if (profile != null) {
+	// 	  console.log("profile");
+	// 	  console.log(profile);
+	// 	  var user = profile;
+	// 	  done(null, user);
+	//   } else {
+	// 	  done(err);
+	//   }
 	  // res.render('index')
     // User.findOrCreate(..., function(err, user) {
     //   if (err) { return done(err); }
     //   done(null, user);
-    // });
+	// });
+	console.log("passport callback function fired")
+	console.log(profile);
+	// new models.User({
+	//     username: profile.displayName,
+	//     googleId: profile.id
+	// }).save().then((newUser) => {
+	//     console.log('new user created' + newUser);
+	// })
+
+
+	// check if user already exists in database 
+	models.User.findOne({facebookId: profile.id}).then((currentUser) => {
+		if (currentUser) {
+			// already have user
+			console.log("user is", currentUser);
+			done(null, currentUser);
+		} else {
+			// if not, create new user
+			new models.User({
+				username: profile.displayName, 
+				facebookId: profile.id
+			}).save().then((newUser) => {
+				console.log('new user created');
+				console.log(newUser);
+				done(null, newUser);
+			})
+		}
+	})
   }
 ));
 // Redirect the user to Facebook for authentication.  When complete,
