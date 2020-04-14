@@ -77,7 +77,7 @@ app.get('/auth/google', passport.authenticate('google', {
 	scope: ['profile']
 }));
 
-app.get('/google/redirect', (req, res) => {
+app.get('/auth/google/redirect', (req, res) => {
 	res.send('you reached the callback URI')
 });
 // app.get('/facebook', function(req, res) {
