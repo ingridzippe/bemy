@@ -156,6 +156,8 @@ passport.use(new LinkedInStrategy({
     profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline']
   },
   function(token, tokenSecret, profile, done) {
+	console.log("linkedin profile");
+	console.log(profile);
     User.findOrCreate({ linkedinId: profile.id }, function (err, user) {
       return done(err, user);
     });
