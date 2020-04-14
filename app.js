@@ -30,6 +30,15 @@ app.get('/', function(req, res) {
   res.render('index')
 });
 
+app.get('/login'), (req, res) => {
+
+}
+
+app.get('/google', (req, res) {
+	// handle with passport
+	res.send('logging in with google');
+})
+
 var passport = require('passport')
   , FacebookStrategy = require('passport-facebook').Strategy;
 
