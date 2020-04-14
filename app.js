@@ -7,6 +7,8 @@ const https = require('https');
 const http = require('http');
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const passportSetup = require('./config/passport-setup');
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
 
 
 setInterval(function() {
@@ -26,6 +28,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, '/public')));
+
+// connect to mongodb
+mongoose.connect(keys.mongodb.dbURI, () => {
+	console.log('connected to mongodb')
+})
 
 app.get('/', function(req, res) {
   res.render('index')
