@@ -3,6 +3,20 @@
 
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="/auth/logout">Logout</a></li>
+            <li><a href="/auth/login">Login</a></li>
+            <li><a href="/">Homepage</a></li>
+            <li><a href="/profile">Profile</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Welcome to your profile, <%= user.username %></h1>
+    </header>
+    <main>
+        <p>extra information about you.</p>
+    </main>
   <div class="main-body">
     <div class="row">
       <a href="/auth/login">Login</a>

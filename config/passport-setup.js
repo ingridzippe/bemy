@@ -41,7 +41,8 @@ passport.use(
                 // if not, create new user
                 new models.User({
                     username: profile.displayName, 
-                    googleId: profile.id
+                    googleId: profile.id,
+                    photo: profile._json.image.url
                 }).save().then((newUser) => {
                     console.log('new user created');
                     console.log(newUser);

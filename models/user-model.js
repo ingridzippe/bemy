@@ -15,6 +15,10 @@ var userSchema = mongoose.Schema({
     googleId: {
         type: String, 
         required: false
+    },
+    photo: {
+        type: String,
+        required: false
     }
 });
 

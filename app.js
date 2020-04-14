@@ -50,11 +50,11 @@ mongoose.connect(keys.mongodb.dbURI, () => {
 app.use('/profile', profileRoutes);
 
 app.get('/', function(req, res) {
-  res.render('index')
+  res.render('index', { user: req.user });
 });
 
 app.get('/login'), (req, res) => {
-	res.render('login');
+	res.render('login', { user: req.user });
 }
 app.get('/logout'), (req, res) => {
 	req.logout();
