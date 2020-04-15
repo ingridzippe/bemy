@@ -31,6 +31,22 @@ var userSchema = mongoose.Schema({
     photo: {
         type: String,
         required: false
+    },
+    email: {
+        type: String,
+        required: false
+    },
+    gender: {
+        type: String,
+        required: false
+    },
+    lgbtq: {
+        type: String,
+        required: false
+    },
+    race: {
+        type: String,
+        required: false
     }
 });
 

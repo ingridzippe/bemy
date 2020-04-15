@@ -11,16 +11,19 @@
         </ul>
     </nav>
     <header>
-        <h1>Welcome to your profile, {{user.username}}</h1>
+        <h1>Welcome to your profile, {{user.username}} - {{user._id}}</h1>
     </header>
     <main>
         <img src={{user.photo}} />
         <p>extra information about you.</p>
 
-        <form action="/saveprofile" method="post">
+        <form id="form-data" action="/saveprofile" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" name="userid" id="userid" value="{{user._id}}" placeholder="{{user._id}}">
+            </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Your email:</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
@@ -62,65 +65,33 @@
             </div>
 
             {{!-- your gender --}}
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                    Female
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                    Male
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                    Non-conforming
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                    Non-binary
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                    I'm not really into labels
-                </label>
-            </div>
-
-            {{!-- your gender --}}
             <label for="exampleInputEmail1">Your gender:</label>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="female">
                 <label class="form-check-label" for="exampleRadios2">
                 Female
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="male">
                 <label class="form-check-label" for="exampleRadios2">
                 Male
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="non-conforming">
                 <label class="form-check-label" for="exampleRadios2">
                 Non-conforming
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="non-binary">
                 <label class="form-check-label" for="exampleRadios2">
                 Non-binary
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="i'm not really into labels">
                 <label class="form-check-label" for="exampleRadios2">
                 I'm not really into labels
                 </label>
@@ -129,30 +100,94 @@
             {{!-- lgbtq --}}
             <label for="exampleInputEmail1">Do you identify with the LGBTQ+ community?</label>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios3" value="option3">
+                <input class="form-check-input" type="radio" name="lgbtq" id="exampleRadios3" value="yes">
                 <label class="form-check-label" for="exampleRadios3">
                 Yes
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios3" value="option3">
+                <input class="form-check-input" type="radio" name="lgbtq" id="exampleRadios3" value="no">
                 <label class="form-check-label" for="exampleRadios3">
                 No
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios3" value="option3">
+                <input class="form-check-input" type="radio" name="lgbtq" id="exampleRadios3" value="i'd rather not say">
                 <label class="form-check-label" for="exampleRadios3">
                 I'd rather not say
                 </label>
             </div>
 
+            {{!-- your race --}}
+            <label for="exampleInputEmail1">Which races do you identify with?</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="race" value="Asian / Pacific Islander" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Asian / Pacific Islander
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="race" value="Black / African American" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Black / African American
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="race" value="Hispanic (May be of any race)" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1"></label>
+                    Hispanic (May be of any race)
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="race" value="Native American (Aleutian Islander)" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Native American (Aleutian Islander)
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="race" value="White (Non-Hispanic)" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    White (Non-Hispanic)
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="race" value="Multi-racial" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Multi-racial
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="race" value="Native or Indegenous" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Native or Indegenous
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="race" value="I identify with a race not listed here" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    I identify with a race not listed here
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="race" value="I would prefer not to indicate my race" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    I would prefer not to indicate my race
+                </label>
+            </div>
 
             {{!-- submit button --}}
             <button type="submit" class="btn btn-primary">Submit</button>
+            <button onclick="getFormData()">Try it</button>
         </form>
 
     </main>
+
+    <script>
+        function getFormData() {
+            var x = document.getElementById("form-data").elements[0].value;
+            console.log(x);
+        }
+    </script>
 </body>
 
 
@@ -174,7 +209,7 @@ Your Birthday:
 -no
 -i'd rather not say --}}
 
-Which races do you identify with? 
+{{!-- Which races do you identify with? 
 -Asian / Pacific Islander
 -Black / African American
 -Hispanic (May be of any race)
@@ -183,7 +218,7 @@ Which races do you identify with?
 -Multi-racial
 -Native or Indegenous
 -I identify with a race not listed here
--I would prefer not to indicate my race
+-I would prefer not to indicate my race --}}
 
 What languages do you speak fluently? 
 English

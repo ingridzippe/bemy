@@ -157,7 +157,18 @@ app.get('/auth/linkedin/callback', passport.authenticate('linkedin', {
 
 app.post('/saveprofile', function(req, res) {
 	console.log('save profile');
-	console.log(res);
+	console.log('req.body');
+	console.log(req.body);
+	// models.User.findByIdAndUpdate({"5db6b26730f133b65dbbe459",
+	// 	{
+	// 		"breed": "Great Dane"
+	// 	}, function(err, result) {
+    //     	if (err) {
+    //         	res.send(err)
+    //     	} else {
+    //         	res.send(result)
+    //     	}
+	// 	})
 });
 
 var port = process.env.PORT || 8080;
