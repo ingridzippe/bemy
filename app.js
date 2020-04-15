@@ -162,16 +162,23 @@ app.post('/saveprofile', function(req, res) {
 	var userid = req.body.userid;
 	console.log(typeof userid);
 	console.log(userid);
-	models.User.findOne({_id: userid}).then((currentUser) => {
-		if (currentUser) {
-			// already have user
-			console.log("user is", currentUser);
-			done(null, currentUser);
-		} else {
-			// if not, create new user
-			console.log("hard liquor")
-		}
+	models.User.update({_id: userid}, {
+		gender: req.body.gender
+	}, function(err, numberAffected, rawResponse) {
+	   //handle it
+	   console.log("hello")
 	})
+	// models.User.findOne({_id: userid}).then((currentUser) => {
+	// 	if (currentUser) {
+	// 		// already have user
+	// 		console.log("user is", currentUser);
+	// 		done(null, currentUser);
+	// 	} else {
+	// 		// if not, create new user
+	// 		console.log("hard liquor")
+	// 	}
+	// })
+
 	// models.User.findByIdAndUpdate({userid},
 	// 	{
 	// 		"gender": req.body.gender
