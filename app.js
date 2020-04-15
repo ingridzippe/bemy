@@ -163,10 +163,15 @@ app.post('/saveprofile', function(req, res) {
 	console.log(typeof userid);
 	console.log(userid);
 	models.User.update({_id: userid}, {
-		gender: req.body.gender
+		gender: req.body.gender,
+		lgbtq: req.body.lgbtq,
+		race: req.body.race
 	}, function(err, numberAffected, rawResponse) {
 	   //handle it
 	   console.log("hello")
+	   console.log(numberAffected);
+	   console.log(rawResponse);
+	   res.render('/thankyou');
 	})
 	// models.User.findOne({_id: userid}).then((currentUser) => {
 	// 	if (currentUser) {
