@@ -162,7 +162,7 @@ app.post('/saveprofile', function(req, res) {
 	var userid = req.body.userid;
 	models.User.findByIdAndUpdate({userid},
 		{
-			"breed": "Great Dane"
+			"gender": req.body.gender
 		}, function(err, result) {
         	if (err) {
             	res.send(err)
