@@ -159,7 +159,8 @@ app.post('/saveprofile', function(req, res) {
 	console.log('save profile');
 	console.log('req.body');
 	console.log(req.body);
-	models.User.findByIdAndUpdate({req.body.userid},
+	var userid = req.body.userid;
+	models.User.findByIdAndUpdate({userid},
 		{
 			"breed": "Great Dane"
 		}, function(err, result) {
