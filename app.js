@@ -160,16 +160,18 @@ app.post('/saveprofile', function(req, res) {
 	console.log('req.body');
 	console.log(req.body);
 	var userid = req.body.userid;
-	models.User.findByIdAndUpdate({userid},
-		{
-			"gender": req.body.gender
-		}, function(err, result) {
-        	if (err) {
-            	res.send(err)
-        	} else {
-            	res.send(result)
-        	}
-		})
+	console.log(typeof userid);
+	console.log(userid);
+	// models.User.findByIdAndUpdate({userid},
+	// 	{
+	// 		"gender": req.body.gender
+	// 	}, function(err, result) {
+    //     	if (err) {
+    //         	res.send(err)
+    //     	} else {
+    //         	res.send(result)
+    //     	}
+	// 	})
 });
 
 var port = process.env.PORT || 8080;
