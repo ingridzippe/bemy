@@ -4,25 +4,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+ </head>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <title>Hello, world!</title>
 </head>
 <body>
-    <nav>
+    {{!-- <nav>
         <ul>
             <li><a href="/auth/logout">Logout</a></li>
             <li><a href="/auth/login">Login</a></li>
             <li><a href="/">Homepage</a></li>
             <li><a href="/profile">Profile</a></li>
         </ul>
-    </nav>
+    </nav> --}}
+  <div class="navbar">
+    <div class="bemy-nav-logo">bemy</div>
+  </div>
   <div class="main-body">
-    <div class="column">
-      <a href="/auth/linkedin">Login with LinkedIn</a>
-      <a href="/auth/facebook">Login with Facebook</a>
-      <a href="/auth/google">Login with Google</a>
+    <div class="become">Become a mentor.</div>
+    <div class="join">Join Bemy's community of mentors. Get paid to lead others through career transitions.</div>
+    <div id="login-container">
+      <a class="login-btn" id="linkedin" href="/auth/linkedin">Signup with LinkedIn</a>
+      <a class="login-btn" id="facebook" href="/auth/facebook">Signup with Facebook</a>
+      <a class="login-btn" id="google" href="/auth/google">Signup with Google</a>
   </div>
 
   <!-- Optional JavaScript -->
