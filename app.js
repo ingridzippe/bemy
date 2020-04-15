@@ -101,12 +101,12 @@ app.get('/auth/facebook',
 // access was granted, the user will be logged in.  Otherwise,
 // authentication has failed.
 app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { successRedirect: '/',
+  passport.authenticate('facebook', { successRedirect: '/profile',
 									  failureRedirect: '/login' }));
 									  
 
 app.get('/auth/google', passport.authenticate('google', {
-	scope: ['profile']
+	scope: ['profile', 'email']
 }));
 app.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
 	/// res.send(req.user);
