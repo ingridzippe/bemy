@@ -29,8 +29,6 @@ passport.use(
         // }).save().then((newUser) => {
         //     console.log('new user created' + newUser);
         // })
-
-
         // check if user already exists in database 
         models.User.findOne({googleId: profile.id}).then((currentUser) => {
             if (currentUser) {
@@ -50,28 +48,5 @@ passport.use(
                 })
             }
         })
-        // var u = new models.User({
-        //     username: profile.displayName,
-        //     googleId: profile.id
-        // });
-        // console.log(u);
-        // u.save(function(err, user) {
-        //     if (err) {
-        //         console.log(err);
-        //         // res.status(500).redirect('/index');
-        //         return;
-        //     }
-        //     console.log("new user created");
-        //     console.log(user);
-        //     // res.redirect('/index');
-        // });
     })
 )
-
-
-
-   // google client id 
-   //  116800683709-k505ql23fc6g8qs9pssdlekdokl0h38f.apps.googleusercontent.com
-
-   // google client secret 
-   // XPAfdx2yqDSuhULEC_bbgsNp

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
     <nav>
@@ -16,5 +16,262 @@
     <main>
         <img src={{user.photo}} />
         <p>extra information about you.</p>
+
+        <form action="/saveprofile" method="post">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Your email:</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+  
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Example select</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect2">Example multiple select</label>
+                <select multiple class="form-control" id="exampleFormControlSelect2">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Example textarea</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+
+            {{!-- your gender --}}
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Female
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Male
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Non-conforming
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Non-binary
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    I'm not really into labels
+                </label>
+            </div>
+
+            {{!-- your gender --}}
+            <label for="exampleInputEmail1">Your gender:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                Female
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                Male
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                Non-conforming
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                Non-binary
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                I'm not really into labels
+                </label>
+            </div>
+
+            {{!-- lgbtq --}}
+            <label for="exampleInputEmail1">Do you identify with the LGBTQ+ community?</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios3" value="option3">
+                <label class="form-check-label" for="exampleRadios3">
+                Yes
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios3" value="option3">
+                <label class="form-check-label" for="exampleRadios3">
+                No
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios3" value="option3">
+                <label class="form-check-label" for="exampleRadios3">
+                I'd rather not say
+                </label>
+            </div>
+
+
+            {{!-- submit button --}}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
     </main>
 </body>
+
+
+Your Zip Code: 
+
+Your City and State: 
+
+Your Birthday: 
+
+{{!-- Your Gender: 
+-female
+-male
+-non-conforming
+-non-binary
+-i'm not really into labels --}}
+
+{{!-- Do you identify with the LGBTQ+ community?
+-yes
+-no
+-i'd rather not say --}}
+
+Which races do you identify with? 
+-Asian / Pacific Islander
+-Black / African American
+-Hispanic (May be of any race)
+-Native American (Aleutian Islander)
+-White (Non-Hispanic)
+-Multi-racial
+-Native or Indegenous
+-I identify with a race not listed here
+-I would prefer not to indicate my race
+
+What languages do you speak fluently? 
+English
+American Sign Language
+Bengali
+Cantonese
+Creole
+French
+German
+Greek
+Hebrew
+Hindi
+Hungarian
+Italian
+Japanese
+Korean
+Mandarin
+Other
+Persian
+Polish
+Portuguese
+Russian
+Serbo-Croatian
+Spanish
+Tagalog
+Urdu
+Vietnamese
+Arabic
+
+What are your areas of expertise? 
+
+Mathematics
+Biology
+Physics
+English
+Social Studies
+Chess
+Cooking
+Finance & Law
+Entrepreneurship
+Economics and Accounting
+Makeup and Skincare
+Health and Fitness
+Language (e.g. Reading, Writing, ESL)
+Art History
+Performing Arts
+Basketball
+Track and Field
+Survival Skills
+Medicine
+Outdoor (Survival, Seasonal, Outdoor activities)
+General Health
+Software
+Coding
+App Development
+Robotics and AI
+Architecture
+Real Estate
+International Relations
+Marketing and PR
+Other
+
+If you answered other to the previous question, please write it here: 
+______
+
+What is your highest level of education? 
+High School Diploma
+2-year college degree (Associate's)
+4-year college degree (Bachelor's)
+Master's Degree (MBA, MPA, MA, etc.)
+PhD, JD, or MD
+None academic- gained through career
+
+Job Title and Company
+________
+
+What amount of time are you willing to commit to mentoring?
+1 hour a week
+1 hour a month
+More than an hour a week
+More than an hour a month
+Other
+
+For how long do you anticipate being a mentor? 
+One-off
+1 week
+3 months
+6 months
+1 year
+Open-ended
+Other

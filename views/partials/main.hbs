@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
 </head>
 <body>
     <nav>
@@ -11,41 +18,16 @@
             <li><a href="/profile">Profile</a></li>
         </ul>
     </nav>
-    <header>
-        <h1>Welcome to your profile, <%= user.username %></h1>
-    </header>
-    <main>
-        <p>extra information about you.</p>
-    </main>
   <div class="main-body">
-    <div class="row">
-      <a href="/auth/login">Login</a>
+    <div class="column">
       <a href="/auth/linkedin">Login with LinkedIn</a>
       <a href="/auth/facebook">Login with Facebook</a>
       <a href="/auth/google">Login with Google</a>
-      {{!-- <a href="" onclick="javascript:loginWithFacebook()">facebook</a> --}}
   </div>
 
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '157356078965913',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v6.0'
-      });
-      FB.AppEvents.logPageView();  
-      fbSDKLoaded()
-    };
-
-    (function(d, s, id){
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {return;}
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
-
-  <script src="/script.js"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
