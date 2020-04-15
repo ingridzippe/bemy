@@ -159,16 +159,16 @@ app.post('/saveprofile', function(req, res) {
 	console.log('save profile');
 	console.log('req.body');
 	console.log(req.body);
-	// models.User.findByIdAndUpdate({"5db6b26730f133b65dbbe459",
-	// 	{
-	// 		"breed": "Great Dane"
-	// 	}, function(err, result) {
-    //     	if (err) {
-    //         	res.send(err)
-    //     	} else {
-    //         	res.send(result)
-    //     	}
-	// 	})
+	models.User.findByIdAndUpdate({req.body.userid},
+		{
+			"breed": "Great Dane"
+		}, function(err, result) {
+        	if (err) {
+            	res.send(err)
+        	} else {
+            	res.send(result)
+        	}
+		})
 });
 
 var port = process.env.PORT || 8080;
