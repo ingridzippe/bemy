@@ -157,6 +157,7 @@ app.get('/auth/linkedin/callback', passport.authenticate('linkedin', {
 
 app.post('/saveprofile', function(req, res) {
 	console.log('save profile');
+	console.log(res);
 });
 
 var port = process.env.PORT || 8080;
