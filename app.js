@@ -171,7 +171,7 @@ app.post('/saveprofile', function(req, res) {
 	   console.log("hello")
 	   console.log(numberAffected);
 	   console.log(rawResponse);
-	   res.render('/thankyou');
+	   res.render('thankyou');
 	})
 	// models.User.findOne({_id: userid}).then((currentUser) => {
 	// 	if (currentUser) {
