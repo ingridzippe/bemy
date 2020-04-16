@@ -163,6 +163,9 @@ app.post('/saveprofile', function(req, res) {
 	console.log(typeof userid);
 	console.log(userid);
 	models.User.update({_id: userid}, {
+		zipcode: req.body.zipcode,
+		city: req.body.city,
+		state: req.body.state,
 		gender: req.body.gender,
 		lgbtq: req.body.lgbtq,
 		race: req.body.race

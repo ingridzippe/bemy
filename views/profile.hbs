@@ -4,42 +4,38 @@
 </head>
 <body>
     {{> main}}
-    <nav>
+    {{!-- <nav>
         <ul>
             <li><a href="/auth/logout">Logout</a></li>
             <li><a href="/auth/login">Login</a></li>
             <li><a href="/">Homepage</a></li>
         </ul>
-    </nav>
+    </nav> --}}
     <header>
-        <h1>Welcome to your profile, {{user.username}} - {{user._id}}</h1>
+        <h1>Complete your profile, {{user.username}}</h1>
     </header>
     <main>
         <img src={{user.photo}} />
-        <p>extra information about you.</p>
+
+        <div class="form-container">
 
         <form id="form-data" action="/saveprofile" method="post">
-            <div class="form-group">
+            {{!-- <div class="form-group">
                 <input type="text" class="form-control" name="userid" id="userid" value="{{user._id}}" placeholder="{{user._id}}">
-            </div>
-            <div class="form-group">
+            </div> --}}
+            {{!-- <div class="form-group">
                 <label for="exampleInputEmail1">Your email:</label>
                 <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <div class="form-check">
+            </div> --}}
+            {{!-- <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-  
-            <div class="form-group">
+            </div> --}}
+            {{!-- <div class="form-group">
                 <label for="exampleFormControlInput1">Email address</label>
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
+            </div> --}}
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Example select</label>
                 <select class="form-control" id="exampleFormControlSelect1">
@@ -63,6 +59,30 @@
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Example textarea</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+
+            {{!-- zip code --}}
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Your Zip Code:</label>
+                <input type="text" class="form-control" name="zipcode" id="exampleFormControlInput1" placeholder="">
+            </div>
+
+            {{!-- city --}}
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Your City:</label>
+                <input type="text" class="form-control" name="city" id="exampleFormControlInput1" placeholder="">
+            </div>
+
+            {{!-- state --}}
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Example select</label>
+                <select class="form-control" name="state" id="exampleFormControlSelect1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                </select>
             </div>
 
             {{!-- your gender --}}
@@ -181,6 +201,8 @@
             <button onclick="getFormData()">Try it</button>
         </form>
 
+        </div>
+
     </main>
 
     <script>
@@ -192,7 +214,7 @@
 </body>
 
 
-Your Zip Code: 
+{{!-- Your Zip Code:  --}}
 
 Your City and State: 
 

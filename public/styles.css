@@ -41,3 +41,7 @@ body {
 }
 #google {
 }
+.form-container {
+  width: 65%;
+  margin: auto;
+}
