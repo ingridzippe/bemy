@@ -61,7 +61,7 @@ var userSchema = mongoose.Schema({
         required: false
     }, 
     language: {
-        type: String, 
+        type: Array, 
         required: false
     }
 });
