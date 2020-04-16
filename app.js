@@ -16,7 +16,7 @@ const models = require('./models/user-model');
 
 
 setInterval(function() {
-    http.request('https://secret-fjord-13510.herokuapp.com/', console.log("here")).end();
+    http.request('http://secret-fjord-13510.herokuapp.com/', console.log("here")).end();
     console.log('set interval aAAAAAA')
     console.log('server poked');
 }, 300000); // every 5 minutes (300000)
