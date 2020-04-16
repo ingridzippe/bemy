@@ -76,6 +76,14 @@ var userSchema = mongoose.Schema({
         type: String,
         required: false
     },
+    menteeage: {
+        type: Array, 
+        required: false
+    },
+    mentoringtype: {
+        type: Array,
+        required: false
+    },
     jobtitle: {
         type: String,
         required: false

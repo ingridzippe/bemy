@@ -16,7 +16,7 @@ const models = require('./models/user-model');
 
 
 setInterval(function() {
-    http.request('http://afternoon-temple-49384.herokuapp.com/', console.log("here")).end();
+    http.request('https://secret-fjord-13510.herokuapp.com/', console.log("here")).end();
     console.log('set interval aAAAAAA')
     console.log('server poked');
 }, 300000); // every 5 minutes (300000)
@@ -165,6 +165,8 @@ app.post('/saveprofile', function(req, res) {
 	var raceArray = [];
 	var languageArray = [];
 	var expertiseArray = [];
+	var menteeArray = [];
+	var mentoringArray = [];
 	if (typeof req.body.race != Array) {
 		raceArray.push(req.body.race);
 	} else { // it is an array, set equal to raceArray
@@ -180,6 +182,16 @@ app.post('/saveprofile', function(req, res) {
 	} else { // it is an array, set equal to raceArray
 		expertiseArray = req.body.expertise;
 	}
+	if (typeof req.body.menteeage != Array) {
+		menteeArray.push(req.body.menteeage);
+	} else { // it is an array, set equal to raceArray
+		menteeArray = req.body.menteeage;
+	}
+	if (typeof req.body.mentoringtype != Array) {
+		mentoringArray.push(req.body.mentoringtype);
+	} else { // it is an array, set equal to raceArray
+		mentoringArray = req.body.mentoringtype;
+	}
 	models.User.update({_id: userid}, {
 		zipcode: req.body.zipcode,
 		city: req.body.city,
@@ -192,6 +204,8 @@ app.post('/saveprofile', function(req, res) {
 		expertise: expertiseArray,
 		other: req.body.other,
 		education: req.body.education,
+		menteeage: menteeArray,
+		mentoringtype: mentoringArray,
 		jobtitle: req.body.jobtitle,
 		company: req.body.company, 
 		hours: req.body.hours,
