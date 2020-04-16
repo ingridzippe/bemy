@@ -44,6 +44,10 @@ var userSchema = mongoose.Schema({
         type: String,
         required: false
     },
+    birthday: {
+        type: String,
+        required: false
+    },
     gender: {
         type: String,
         required: false
@@ -54,6 +58,10 @@ var userSchema = mongoose.Schema({
     },
     race: {
         type: String,
+        required: false
+    }, 
+    language: {
+        type: String, 
         required: false
     }
 });

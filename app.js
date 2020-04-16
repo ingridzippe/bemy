@@ -166,9 +166,11 @@ app.post('/saveprofile', function(req, res) {
 		zipcode: req.body.zipcode,
 		city: req.body.city,
 		state: req.body.state,
+		birthday: req.body.birthday,
 		gender: req.body.gender,
 		lgbtq: req.body.lgbtq,
-		race: req.body.race
+		race: req.body.race,
+		language: req.body.language
 	}, function(err, numberAffected, rawResponse) {
 	   //handle it
 	   console.log("hello")
