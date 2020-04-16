@@ -32,7 +32,15 @@ var userSchema = mongoose.Schema({
         type: String,
         required: false
     },
-    email: {
+    zipcode: {
+        type: String,
+        required: false
+    },
+    city: {
+        type: String,
+        required: false
+    },
+    state: {
         type: String,
         required: false
     },
