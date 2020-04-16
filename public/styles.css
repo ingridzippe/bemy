@@ -45,3 +45,6 @@ body {
   width: 65%;
   margin: auto;
 }
+#user-id-hide {
+  display: none;
+}
