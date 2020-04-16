@@ -57,7 +57,7 @@ var userSchema = mongoose.Schema({
         required: false
     },
     race: {
-        type: String,
+        type: Array,
         required: false
     }, 
     language: {
