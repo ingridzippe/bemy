@@ -63,6 +63,34 @@ var userSchema = mongoose.Schema({
     language: {
         type: Array, 
         required: false
+    }, 
+    expertise: {
+        type: Array, 
+        required: false
+    }, 
+    other: {
+        type: String, 
+        required: false
+    }, 
+    education: {
+        type: String,
+        required: false
+    },
+    jobtitle: {
+        type: String,
+        required: false
+    },
+    company: {
+        type: String,
+        required: false
+    },
+    hours: {
+        type: String,
+        required: false
+    },
+    time: {
+        type: String,
+        required: false
     }
 });
 

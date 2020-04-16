@@ -164,6 +164,7 @@ app.post('/saveprofile', function(req, res) {
 	console.log(userid);
 	var raceArray = [];
 	var languageArray = [];
+	var expertiseArray = [];
 	if (typeof req.body.race != Array) {
 		raceArray.push(req.body.race);
 	} else { // it is an array, set equal to raceArray
@@ -174,6 +175,11 @@ app.post('/saveprofile', function(req, res) {
 	} else { // it is an array, set equal to raceArray
 		languageArray = req.body.language;
 	}
+	if (typeof req.body.expertise != Array) {
+		expertiseArray.push(req.body.expertise);
+	} else { // it is an array, set equal to raceArray
+		expertiseArray = req.body.expertise;
+	}
 	models.User.update({_id: userid}, {
 		zipcode: req.body.zipcode,
 		city: req.body.city,
@@ -182,7 +188,14 @@ app.post('/saveprofile', function(req, res) {
 		gender: req.body.gender,
 		lgbtq: req.body.lgbtq,
 		race: raceArray,
-		language: languageArray
+		language: languageArray, 
+		expertise: expertiseArray,
+		other: req.body.other,
+		education: req.body.education,
+		jobtitle: req.body.jobtitle,
+		company: req.body.company, 
+		hours: req.body.hours,
+		time: req.body.time
 	}, function(err, numberAffected, rawResponse) {
 	   //handle it
 	   console.log("hello")

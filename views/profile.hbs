@@ -11,13 +11,13 @@
             <li><a href="/">Homepage</a></li>
         </ul>
     </nav> --}}
-    <header>
-        <h1>Complete your profile, {{user.username}}</h1>
-    </header>
     <main>
-        <img src={{user.photo}} />
+    <div class="main-body-2"></div>
+    <div class="main-body-overlay"></div>
 
         <div class="form-container">
+
+        <div id="label" class="complete-profile">Complete your profile, {{user.username}}</div>
 
         <form id="form-data" action="/saveprofile" method="post">
             <div class="form-group" id="user-id-hide">
@@ -36,46 +36,22 @@
                 <label for="exampleFormControlInput1">Email address</label>
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
             </div> --}}
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Example select</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect2">Example multiple select</label>
-                <select multiple class="form-control" id="exampleFormControlSelect2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Example textarea</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
 
             {{!-- zip code --}}
             <div class="form-group">
-                <label for="exampleFormControlInput1">Your Zip Code:</label>
+                <label id="label" for="exampleFormControlInput1">Your Zip Code:</label>
                 <input type="text" class="form-control" name="zipcode" id="exampleFormControlInput1" placeholder="">
             </div>
 
             {{!-- city --}}
             <div class="form-group">
-                <label for="exampleFormControlInput1">Your City:</label>
+                <label id="label" for="exampleFormControlInput1">Your City:</label>
                 <input type="text" class="form-control" name="city" id="exampleFormControlInput1" placeholder="">
             </div>
 
             {{!-- state --}}
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Example select</label>
+                <label id="label" for="exampleFormControlSelect1">Example select</label>
                 <select class="form-control" name="state" id="exampleFormControlSelect1">
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
@@ -133,12 +109,12 @@
 
             {{!-- birthday --}}
             <div class="form-group">
-                <label for="exampleInputEmail1">Your birthday:</label>
+                <label id="label" for="exampleInputEmail1">Your birthday:</label>
                 <input class="form-control" type="date" name="birthday" value="1980-01-01" id="example-date-input">  
             </div>
 
             {{!-- your gender --}}
-            <label for="exampleInputEmail1">Your gender:</label>
+            <label id="label" for="exampleInputEmail1">Your gender:</label>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="female">
                 <label class="form-check-label" for="exampleRadios2">
@@ -171,7 +147,7 @@
             </div>
 
             {{!-- lgbtq --}}
-            <label for="exampleInputEmail1">Do you identify with the LGBTQ+ community?</label>
+            <label id="label" for="exampleInputEmail1">Do you identify with the LGBTQ+ community?</label>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="lgbtq" id="exampleRadios3" value="yes">
                 <label class="form-check-label" for="exampleRadios3">
@@ -192,7 +168,7 @@
             </div>
 
             {{!-- your race --}}
-            <label for="exampleInputEmail1">Which races do you identify with?</label>
+            <label id="label" for="exampleInputEmail1">Which races do you identify with?</label>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="race" value="Asian / Pacific Islander" id="defaultCheck1">
                 <label class="form-check-label" for="defaultCheck1">
@@ -249,7 +225,7 @@
             </div>
 
             {{!-- What languages do you speak fluently?  --}}
-            <label for="exampleInputEmail1">What languages do you speak fluently?</label>
+            <label id="label" for="exampleInputEmail1">What languages do you speak fluently?</label>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="language" value="English" id="defaultCheck1">
                 <label class="form-check-label" for="defaultCheck1">
@@ -395,9 +371,333 @@
                 </label>
             </div>
 
+            {{!-- What are your areas of expertise? --}}
+            <label id="label" for="exampleInputEmail1">What are your areas of expertise?</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Mathematics" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Mathematics
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Biology" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Biology
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Physics" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1"></label>
+                    Physics
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="English" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    English
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Social Studies" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Social Studies
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Chess" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Chess
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Cooking" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Cooking
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Finance & Law" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Finance
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Finance & Law" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Law & Legislation
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Entrepreneurship" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Entrepreneurship
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Economics and Accounting" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Economics and Accounting
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Makeup and Skincare" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Makeup and Skincare
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Health and Fitness" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1"></label>
+                    Health and Fitness
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Language (e.g. Reading, Writing, ESL)" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Language (e.g. Reading, Writing, ESL)
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Art History" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Art History
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Performing Arts" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Performing Arts
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Basketball" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Basketball
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Track and Field" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Track and Field
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Survival Skills" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Survival Skills
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Medicine" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Medicine
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Outdoor (Survival, Seasonal, Outdoor activities)" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Outdoor (Survival, Seasonal, Outdoor activities)
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Health & Fitness" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Health & Fitness
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Web Development" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Web Development
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Software Engineering" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Software Engineering
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="User Experience Design" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    User Experience Design
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="App Development" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    App Development
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Robotics and AI" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Robotics and AI
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Architecture" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Architecture
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Real Estate" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Real Estate
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="International Relations" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    International Relations
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Marketing and PR" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Marketing and PR
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="expertise" value="Other" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Other
+                </label>
+            </div>
+
+            
+            {{!-- other --}}
+            <div id="label" class="form-group">
+                <label for="exampleFormControlInput1">If you answered other to the previous question, please write in your area of expertise:</label>
+                <input type="text" class="form-control" name="other" id="exampleFormControlInput1" placeholder="">
+            </div>
+
+            {{!-- highest education --}}
+            <label id="label" for="exampleInputEmail1">What is your highest level of education?</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="education" id="exampleRadios3" value="High School Diploma">
+                <label class="form-check-label" for="exampleRadios3">
+                High School Diploma
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="education" id="exampleRadios3" value="2-year college degree (Associate's)">
+                <label class="form-check-label" for="exampleRadios3">
+                2-year college degree (Associate's)
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="education" id="exampleRadios3" value="4-year college degree (Bachelor's)">
+                <label class="form-check-label" for="exampleRadios3">
+                4-year college degree (Bachelor's)
+                </label>
+            </div>
+                    <div class="form-check">
+                <input class="form-check-input" type="radio" name="education" id="exampleRadios3" value="Master's Degree (MBA, MPA, MA, etc.)">
+                <label class="form-check-label" for="exampleRadios3">
+                Master's Degree (MBA, MPA, MA, etc.)
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="education" id="exampleRadios3" value="PhD, JD, or MD">
+                <label class="form-check-label" for="exampleRadios3">
+                PhD, JD, or MD
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="education" id="exampleRadios3" value="None academic - gained through career">
+                <label class="form-check-label" for="exampleRadios3">
+                None academic - gained through career
+                </label>
+            </div>
+
+            {{!-- job title --}}
+            <div class="form-group">
+                <label id="label" for="exampleFormControlInput1">Your most recent job title:</label>
+                <input type="text" class="form-control" name="jobtitle" id="exampleFormControlInput1" placeholder="">
+            </div>
+
+            {{!-- company --}}
+            <div class="form-group">
+                <label id="label" for="exampleFormControlInput1">The company you worked for most recently:</label>
+                <input type="text" class="form-control" name="company" id="exampleFormControlInput1" placeholder="">
+            </div>
+
+            {{!-- hours --}}
+            <label id="label" for="exampleInputEmail1">What amount of time are you willing to commit to mentoring?</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="hours" id="exampleRadios3" value="1 hour per week">
+                <label class="form-check-label" for="exampleRadios3">
+                1 hour per week
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="hours" id="exampleRadios3" value="1 hour per month">
+                <label class="form-check-label" for="exampleRadios3">
+                1 hour per month
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="hours" id="exampleRadios3" value="More than an hour per week">
+                <label class="form-check-label" for="exampleRadios3">
+                More than an hour per week
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="hours" id="exampleRadios3" value="More than an hour per month">
+                <label class="form-check-label" for="exampleRadios3">
+                More than an hour per month
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="hours" id="exampleRadios3" value="Other">
+                <label class="form-check-label" for="exampleRadios3">
+                Other
+                </label>
+            </div>
+
+            {{!-- time --}}
+            <label id="label" for="exampleInputEmail1">What amount of time are you willing to commit to mentoring?</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="time" id="exampleRadios3" value="1 week">
+                <label class="form-check-label" for="exampleRadios3">
+                1 week
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="time" id="exampleRadios3" value="3 months">
+                <label class="form-check-label" for="exampleRadios3">
+                3 months
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="time" id="exampleRadios3" value="6 months">
+                <label class="form-check-label" for="exampleRadios3">
+                6 months
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="time" id="exampleRadios3" value="1 year">
+                <label class="form-check-label" for="exampleRadios3">
+                1 year
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="time" id="exampleRadios3" value="Open-ended">
+                <label class="form-check-label" for="exampleRadios3">
+                Open-ended
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="time" id="exampleRadios3" value="Other">
+                <label class="form-check-label" for="exampleRadios3">
+                Other
+                </label>
+            </div>
+
             {{!-- submit button --}}
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button onclick="getFormData()">Try it</button>
+            <button id="save-profile-btn" type="submit" class="btn btn-primary">Save Profile</button>
         </form>
 
         </div>
@@ -444,7 +744,7 @@
 -I identify with a race not listed here
 -I would prefer not to indicate my race --}}
 
-What languages do you speak fluently? 
+{{!-- What languages do you speak fluently? 
 English
 American Sign Language
 Bengali
@@ -470,9 +770,9 @@ Spanish
 Tagalog
 Urdu
 Vietnamese
-Arabic
+Arabic --}}
 
-What are your areas of expertise? 
+{{!-- What are your areas of expertise? 
 
 Mathematics
 Biology
@@ -503,34 +803,34 @@ Architecture
 Real Estate
 International Relations
 Marketing and PR
-Other
+Other --}}
 
-If you answered other to the previous question, please write it here: 
-______
+{{!-- If you answered other to the previous question, please write it here: 
+______ --}}
 
-What is your highest level of education? 
+{{!-- What is your highest level of education? 
 High School Diploma
 2-year college degree (Associate's)
 4-year college degree (Bachelor's)
 Master's Degree (MBA, MPA, MA, etc.)
 PhD, JD, or MD
-None academic- gained through career
+None academic- gained through career --}}
 
-Job Title and Company
-________
+{{!-- Job Title and Company
+________ --}}
 
-What amount of time are you willing to commit to mentoring?
+{{!-- What amount of time are you willing to commit to mentoring?
 1 hour a week
 1 hour a month
 More than an hour a week
 More than an hour a month
-Other
+Other --}}
 
-For how long do you anticipate being a mentor? 
+{{!-- For how long do you anticipate being a mentor? 
 One-off
 1 week
 3 months
 6 months
 1 year
 Open-ended
-Other
+Other --}}
